@@ -116,6 +116,16 @@ class Restful {
      *
      * @return RestfulResponse
      */
+    public function unprocessable($message = 'Unprocessable')
+    {
+        return $this->errorResponse($message, 422);
+    }
+
+    /**
+     * @param string $message
+     *
+     * @return RestfulResponse
+     */
     public function forbidden($message = 'Forbidden')
     {
         return $this->errorResponse($message, 403);

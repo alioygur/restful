@@ -67,6 +67,9 @@ class RestfulServiceProvider extends ServiceProvider
         Response::macro('validationFailed', function(array $errors = [], $message = 'Validation Failed') {
             return Facades\Restful::validationFailed($errors, $message);
         });
+        Response::macro('unprocessable', function($message) {
+            return Facades\Restful::unprocessable($message);
+        });
         Response::macro('forbidden', function($message) {
             return Facades\Restful::forbidden($message);
         });
