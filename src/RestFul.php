@@ -40,7 +40,7 @@ class Restful {
 
         $rootScope = $this->getFractal()->createData($resource);
 
-        return $this->jsonResponse($rootScope->toArray());
+        return $this->response($rootScope->toArray());
     }
 
     /**
@@ -66,7 +66,7 @@ class Restful {
 
         $rootScope = $this->getFractal()->createData($resource);
 
-        return $this->jsonResponse($rootScope->toArray());
+        return $this->response($rootScope->toArray());
     }
 
     /**
@@ -87,7 +87,7 @@ class Restful {
      */
     public function deleted($message = 'Success')
     {
-        return $this->jsonResponse(['message' => $message], 201);
+        return $this->response(['message' => $message], 201);
     }
 
     /**
@@ -97,7 +97,7 @@ class Restful {
      */
     public function success($message = 'Success')
     {
-        return $this->jsonResponse(['message' => $message]);
+        return $this->response(['message' => $message]);
     }
 
     /**
@@ -108,7 +108,7 @@ class Restful {
      */
     public function validationFailed($errors = [], $message = 'Validation Failed')
     {
-        return $this->errorResponse($message, 400, $errors);
+        return $this->error($message, 400, $errors);
     }
 
     /**
@@ -118,7 +118,7 @@ class Restful {
      */
     public function unprocessable($message = 'Unprocessable')
     {
-        return $this->errorResponse($message, 422);
+        return $this->error($message, 422);
     }
 
     /**
@@ -128,7 +128,7 @@ class Restful {
      */
     public function forbidden($message = 'Forbidden')
     {
-        return $this->errorResponse($message, 403);
+        return $this->error($message, 403);
     }
 
     /**
@@ -138,7 +138,7 @@ class Restful {
      */
     public function unauthorized($message = 'Unauthorized')
     {
-        return $this->errorResponse($message, 401);
+        return $this->error($message, 401);
     }
 
     /**
@@ -148,7 +148,7 @@ class Restful {
      */
     public function notFound($message = 'Resource Not Found')
     {
-        return $this->errorResponse($message, 404);
+        return $this->error($message, 404);
     }
 
     /**
@@ -158,9 +158,9 @@ class Restful {
      *
      * @return RestfulResponse
      */
-    private function errorResponse($message, $code, $errors = [])
+    public function error($message, $code, $errors = [])
     {
-        return $this->jsonResponse(['error' => [
+        return $this->response(['error' => [
             'http_code' => $code,
             'message' => $message,
             'errors' => $errors
@@ -175,7 +175,7 @@ class Restful {
      *
      * @return RestfulResponse
      */
-    private function jsonResponse($data = null, $status = 200, $headers = [], $options = 0)
+    public function response($data = null, $status = 200, $headers = [], $options = 0)
     {
         return new RestfulResponse($data, $status, $headers, $options);
     }
