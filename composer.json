@@ -1,5 +1,13 @@
 {
     "name": "alioygur/restful",
+    "description": "Create simple restful responses",
+    "keywords": [
+        "laravel",
+        "restful",
+        "api",
+        "rest",
+        "response"
+    ],
     "require": {
         "league/fractal": "0.11.*"
     },

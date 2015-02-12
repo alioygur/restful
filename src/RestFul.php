@@ -19,7 +19,7 @@ use League\Fractal\TransformerAbstract;
 /**
  * Class Restful
  *
- * @package App\Support
+ * @package Alioygur\Restful
  */
 class Restful {
 
@@ -168,32 +168,6 @@ class Restful {
     private function jsonResponse($data = null, $status = 200, $headers = [], $options = 0)
     {
         return new RestfulResponse($data, $status, $headers, $options);
-    }
-
-    /**
-     *
-     */
-    public function defineMacros()
-    {
-        Response::macro('errorBadRequest', function($errors = [], $message = 'Bad Request', $code = 400) {
-            return self::errorResponse($message, $code, $errors);
-        });
-
-        Response::macro('errorUnprocess', function($message = 'Unprocessable entity', $code = 422, $errors = []) {
-            return self::errorResponse($message, $code, $errors);
-        });
-
-        Response::macro('errorUnauthorized', function($message = 'Unauthorized', $code = 401, $errors = []) {
-            return self::errorResponse($message, $code, $errors);
-        });
-
-        Response::macro('errorForbidden', function($message = 'Forbidden', $code = 403, $errors = []) {
-            return self::errorResponse($message, $code, $errors);
-        });
-
-        Response::macro('errorNotFound', function($message = 'Resource Not Found', $code = 404, $errors = []) {
-            return self::errorResponse($message, $code, $errors);
-        });
     }
 
     /**

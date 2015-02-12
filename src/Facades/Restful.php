@@ -10,6 +10,11 @@ namespace Alioygur\Restful\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class Restful
+ *
+ * @package Alioygur\Restful\Facades
+ */
 class Restful extends Facade
 {
     /**
@@ -21,6 +26,6 @@ class Restful extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'restful';
+        return 'Alioygur\Restful\Restful';
     }
 }
