@@ -93,7 +93,7 @@ class Restful {
     /**
      * @param string $message
      *
-     * @return mixed
+     * @return RestfulResponse
      */
     public function success($message = 'Success')
     {
