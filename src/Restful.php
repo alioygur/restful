@@ -87,7 +87,7 @@ class Restful {
      */
     public function deleted($message = 'Success')
     {
-        return $this->response(['message' => $message], 201);
+        return $this->response(['message' => $message], 204);
     }
 
     /**
