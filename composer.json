@@ -9,7 +9,7 @@
         "response"
     ],
     "require": {
-        "league/fractal": "0.11.*"
+        "league/fractal": "0.*"
     },
     "license": "MIT",
     "authors": [
